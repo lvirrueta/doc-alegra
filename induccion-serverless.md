@@ -38,12 +38,8 @@
 - Plataforma para desarrollar, entrenar e implementar modelos de Machine Learning: **AWS SageMaker**.
 
 ### Seguridad
-- Define redes virtuales privadas en AWS: **AWS VPC** (Virtual Private Cloud).
-- Gestiona identidades, roles y permisos: **AWS IAM** (Identity and Access Management).
-
-### Seguridad
-- [AWS VPC](#aws-vpc)
-- [AWS IAM](#aws-iam)
+- Define redes virtuales privadas en AWS: [AWS VPC](#aws-vpc) (Virtual Private Cloud).
+- Gestiona identidades, roles y permisos: [AWS IAM](#aws-iam) (Identity and Access Management).
 
 #### AWS VPC
 **Amazon VPC (Virtual Private Cloud)** te permite definir una red virtual aislada dentro de la infraestructura de AWS. Con VPC puedes:
