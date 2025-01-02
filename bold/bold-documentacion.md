@@ -47,7 +47,7 @@ La respuesta es en tipo JSON, y los posibles errores:
 - **AP005** El cuerpo del body enviado no cuenta con todos los campos obligatorios, valida en la respuesta que campo te hace falta.  
 - **AP006** Uno de los campos del body no cuenta con el tipo esperado según lo definido en esta documentación.
 
-### Tipo de API<a id="#tipo-api"></a>
+### Tipo de API<a id="tipo-api"></a>
 La API de Bold es de tipo RESTful, utiliza métodos de HTTP estandar y en formato JSON
 
 
@@ -56,18 +56,47 @@ API Link de pagos ofrece la capacidad de integrar fácilmente la creación y ges
 
 [Tarea - Asana](https://app.asana.com/0/1208399707757626/1208968353887279)
 
-
+1. [Seguridad y Autenticación](#api-pagos-seguridad)
+1. [Funcionalidades Principales](#api-pagos-funciones)
 1. [¿Implica suscripción o pagos?](#api-pagos-suscripcion)
 1. [¿Hay límite de solicitudes en la API?](#api-pagos-limite)
 1. [Tipo de integración: API REST o SOAP](#api-pagos-rest)
 1. [Tiempo de respuesta](#api-pagos-tiempo)
 1. [Tiempo de respuesta](#api-pagos-tipo)
 
+### Seguridad y Autenticación<a id="api-pagos-seguridad"></a>
+Las solicitudes a la API requieren una llave de identidad (x-api-key) que debe incluirse en las cabeceras de cada petición para garantizar la autenticidad y seguridad de las transacciones.
 
-### ¿Implica suscripción o pagos?<a id="api-pagos-limite"></a>
+### Funcionalidades Principales<a id="api-pagos-funciones"></a>
+**Url Base:** https://integrations.api.bold.co 
+
+- [Consulta de métodos de pagos](#api-pagos-consulta)
+- [Creación de enlace de pago](#api-pagos-creación)
+- [Consulta estado y datos del enlace de pagos](#api-pagos-consulta-estado)
+
+#### Consulta de métodos de pago<a id="api-pagos-consulta"></a>
+- Endpoint: `GET`->`/online/link/v1/payment_methods`
+- Descripción: Permite obtener los métodos de pago habilitados y sus límites de monto mínimo y máximo.
+
+#### Creación de Enlace de Pago<a id="api-pagos-creación"></a>
+- Endpoint: `POST`->`/online/link/v1`
+- Descripción: Crea un link de pago que permite a los comercios generar links para que sus clientes puedan realizar pagos.
+- Flujo de Trabajo: 
+  - El comercio envía solicitud `POST` con los detalles de pago.
+  - La API valida la solicitud y genera un enlace de pago único.
+  - El comercio recibe el enlace para compartirlo con el cliente.
+
+#### Consulta de enlace de pagos<a id="api-pagos-consulta-estado"></a>
+- Endpoint: `GET`->`/online/link/v1/{payment_link}`
+- Descripción: Permite a los usuarios consultar el estado y los datos asociados a un link de pago.
+- Flujo de Trabajo: 
+  - El comercio envía una solicitud `GET` con el identificador del enlace.
+  - La API responde con los detalles actualizados del enlace, incluyendo su estado y otra información relevante.
+
+### ¿Implica suscripción o pagos?<a id="api-pagos-suscripcion"></a>
 No se mencionan un costo o suscripción
 
-### ¿Hay límite de solicitudes en la API?<a id="api-pagos-suscripcion"></a>
+### ¿Hay límite de solicitudes en la API?<a id="api-pagos-limite"></a>
 No se especifica un límite explicito de solicitudes.
 
 ### Tipo de integración: API REST o SOAP<a id="api-pagos-rest"></a>
@@ -79,3 +108,4 @@ La documentación no proporciona información sobre los tiempos de respuesta.
 ### Tipo de respuestas<a id="api-pagos-tipo"></a>
 - La API proporciona respuestas en tipo JSON
 - La API no proporciona los errores.
+
