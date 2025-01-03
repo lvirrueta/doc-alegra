@@ -1,11 +1,14 @@
-# Bold - Documentación
+# Bold - Documentación <a id="index"></a>
 
 - [Bold](#bold)
 - [API - Integrations](#api-integrations)
 - [API - Link de Pagos](#api-link-pagos)
+- [API - Botón de Pagos](#api-boton-pagos)
 
 ## Bold
 Bold es una empresa que ofrece soluciones de pago para negocios, permitiendo recibir pagos con tarjetas de manera fácil, rápida y segura. Su aplicación móvil, disponible en Google Play, facilita la gestión de transacciones mediante datáfonos móviles.
+
+***
 
 ## API Integrations <a id="api-integrations"></a>
 Api integrations ofrece la capacidad de integrar fácilmente la creación y gestión de pagos en tu plataforma existente. Con esta API, se podrán automatizar procesos, personalizar la experiencia de pago y aprovechar al máximo las capacidades de nuestra plataforma.
@@ -18,6 +21,9 @@ Api integrations ofrece la capacidad de integrar fácilmente la creación y gest
 4. [Códigos de respuesta y de error](#codigos-respuesta)
 5. [Tipo de API](#tipo-api)
 
+<div style="text-align: right; font-size: 25px;">
+  <a href="#index">&uarr;</a>
+</div>
 
 ### Tipo de Peticiones API Bold<a id="api-bold"></a>
 - **Consulta de métodos de pago disponibles:** Permite obtener informacion sobre los métodos de pago que el datáfono puede procesar.
@@ -50,6 +56,7 @@ La respuesta es en tipo JSON, y los posibles errores:
 ### Tipo de API<a id="tipo-api"></a>
 La API de Bold es de tipo RESTful, utiliza métodos de HTTP estandar y en formato JSON
 
+***
 
 ## API Link de Pagos <a id="api-link-pagos"></a>
 API Link de pagos ofrece la capacidad de integrar fácilmente la creación y gestión de links de pago en tus aplicaciones y plataformas existentes. Con esta API, se podrán automatizar procesos, personalizar la experiencia de pago y aprovechar al máximo las capacidades de nuestra plataforma.
@@ -62,7 +69,11 @@ API Link de pagos ofrece la capacidad de integrar fácilmente la creación y ges
 1. [¿Hay límite de solicitudes en la API?](#api-pagos-limite)
 1. [Tipo de integración: API REST o SOAP](#api-pagos-rest)
 1. [Tiempo de respuesta](#api-pagos-tiempo)
-1. [Tiempo de respuesta](#api-pagos-tipo)
+1. [Tipos de respuesta y errores](#api-pagos-tipo)
+
+<div style="text-align: right; font-size: 25px;">
+  <a href="#index">&uarr;</a>
+</div>
 
 ### Seguridad y Autenticación<a id="api-pagos-seguridad"></a>
 Las solicitudes a la API requieren una llave de identidad (x-api-key) que debe incluirse en las cabeceras de cada petición para garantizar la autenticidad y seguridad de las transacciones.
@@ -108,4 +119,51 @@ La documentación no proporciona información sobre los tiempos de respuesta.
 ### Tipo de respuestas<a id="api-pagos-tipo"></a>
 - La API proporciona respuestas en tipo JSON
 - La API no proporciona los errores.
+
+***
+
+## API Botón de Pagos <a id="api-boton-pagos"></a>
+El **Botón de Pagos** es una herramienta que permite integrar una solución de pago, redirigiendo a los clientes a la pasarela de pagos de Bold para completar transacciones de manera segura. 
+
+[Tarea - Asana](https://app.asana.com/0/1208399707757626/1208968353887280)
+
+1. [Formas de Integración](#api-boton-integracion)
+1. [Tipo de integración: API REST o SOAP](#api-boton-rest)
+1. [Tiempo de respuesta](#api-boton-tiempo)
+1. [Respuestas o códigos de error](#api-boton-error)
+1. [¿Implica suscripción o pagos?](#api-boton-sucripcion)
+1. [¿Hay límite de solicitudes en la API?](#api-boton-limite)
+
+<div style="text-align: right; font-size: 25px;">
+  <a href="#index">&uarr;</a>
+</div>
+
+### Formas de Integración<a id="api-boton-integracion"></a>
+- **Plugins:** Bold ofrece plugins para plataformas de comercio electrónico.
+- **Integración Manual:** Para sitios web personalizados, es posible añadir el botón de pagos mediante código
+  - Obtener las llaves de autenticación proporcionadas por Bold.
+  - Generar un identificador único para cada venta.
+  - Crear un hash de integridad para asegurar la transacción.
+  - Configurar una URL de redirección post-pago.
+  - Preparar los datos de la venta y añadir el botón en el sitio web.
+  - Consultar el estado de una transacción después del pago.
+- **Integración Personalizada del Botón de Pagos:** Si se prefiere adaptar el botón de pagos al diseño del sitio web del cliente
+  - **Inicializar el Script de Bold:** Carga el script necesario en el encabezado.
+  - **Crear una instancia de Venta:** Con el constructor BoldCheckout se especifica la transacción.
+  - **Asignar Funcionalidad al Elemento Deseado:** Asociar la acción de apertura de la pasarela de pagos de Bold al elemento de la pagina.
+
+### Tipo de integración: API REST o SOAP <a id="api-boton-rest"></a>
+La API utiliza un modelo REST y acepta solicitudes en formato JSON
+
+### Tiempo de respuesta<a id="api-boton-tiempo"></a>
+La documentación no proporciona información sobre los tiempos de respuesta.
+
+### Respuestas o códigos de error <a id="api-boton-error"></a>
+- La API proporciona respuestas en tipo JSON
+- La API no proporciona los errores.
+
+### ¿Hay límite de solicitudes en la API? <a id="api-boton-limite"></a>
+La documentación no menciona limites en las solicitudes de la API
+
+
 
